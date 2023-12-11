@@ -85,9 +85,27 @@ const res = useQuery(
            const name = data.data.map((ele)=>{
             return ele.name 
             })
-            
+
            }
        }
    }
 )
 ```
+
+### Dynamic data fetching using id
+
+#### keyPoints 
+ - since react-query caches the data using keys so for dynamic id we need to use dynamic key : ['key-name',id] so every time we get different key for different id
+
+  - the fetch function has access to the {queryKey} which is an array so we can access
+  the id using query[1]
+
+  ```
+  const fetcherFunction = ( {queryKey})=>{
+      console.log(queryKey)  // ['key-name',id]
+      return axios.get(`url/${queryKey[1]}`)
+  }
+  const res = useQuery ( ['key-name',id],fetcherFunction)
+
+  ```
+ 

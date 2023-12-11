@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
-
+import "../App.css";
+import { Link } from "react-router-dom";
 const RQFsuperhero = () => {
   const [pooling, setPooling] = useState(3000);
 
@@ -28,17 +29,22 @@ const RQFsuperhero = () => {
       refetchIntervalInBackground: true,
       onSuccess,
       onError,
-      select: (data) =>  {
-        const superheroName = data.data.map((ele) => ele.name)
-        console.log(superheroName,"superhero name")
-        return superheroName
-      }
+      select: (data) => {
+        const superheroName = data.data.map((ele) => {
+          return { superhero: ele.superhero, id: ele.id };
+        });
+        console.log(superheroName, "superhero name");
+        return superheroName;
+      },
     }
   );
 
   return (
     <div>
-      <p style={{ fontWeight: "bolder", fontSize: "30px", color: "red" }}>
+      <h3 style={{ color: "red", textDecorationLine: "underline" }}>
+        Superhero List
+      </h3>
+      {/* <p style={{ fontWeight: "bolder", fontSize: "30px", color: "red" }}>
         Superheros List RQF
       </p>
       <button
@@ -52,7 +58,7 @@ const RQFsuperhero = () => {
         onClick={refetch}
       >
         Fetch Superheroes Data
-      </button>
+      </button> */}
       {isLoading ? (
         <h3>Loading the data ....</h3>
       ) : isError ? (
@@ -62,7 +68,13 @@ const RQFsuperhero = () => {
         // data.data.map((ele) => <p key={ele.id}>{ele.name}</p>)
 
         data?.length &&
-        data.map((ele) => <p key={ele}>{ele}</p>)
+        data.map((ele) => (
+          <Link to={`/req/superheros/${ele.id}`}>
+            <p key={ele.id} className="App-hero">
+              {ele.superhero}
+            </p>
+          </Link>
+        ))
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import "../App.css";
 const Superhero = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ const Superhero = () => {
     try {
       const resp = await axios.get(`http://localhost:8080/superheros`);
       const fetchedData = resp.data;
-      console.log("fetch data", fetchedData);
+      // console.log("fetch data", fetchedData);
       setData(fetchedData);
     } catch (error) {
       setError(error.message);
@@ -32,7 +32,11 @@ const Superhero = () => {
       ) : error ? (
         <p> {error}</p>
       ) : data?.length > 0 ? (
-        data.map((ele) => <p key={ele.id}>{ele.name}</p>)
+        data.map((ele) => (
+          <p key={ele.id} className="App-hero">
+            {ele.superhero}
+          </p>
+        ))
       ) : (
         <p>Oops! no data found</p>
       )}
