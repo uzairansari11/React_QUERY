@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import './App.css';
-import MainRouting from './Routes/Routing';
+import { Link } from "react-router-dom";
+import "./App.css";
+import MainRouting from "./Routes/Routing";
 
 function App() {
-  const style= {textDecoration:"none",color:"white"}
+  const style = { textDecoration: "none", color: "white" };
   return (
     <div className="App">
       <div
@@ -34,6 +34,10 @@ function App() {
         <Link to="/req/superheros/dynamic/parallel" style={style}>
           {" "}
           Dynamic Parallel Superheros
+        </Link>
+        <Link to="/req/dependent/query/api/calls" style={style}>
+          {" "}
+          Dependent Query
         </Link>
       </div>
       <MainRouting />

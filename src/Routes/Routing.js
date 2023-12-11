@@ -4,6 +4,7 @@ import RQFsuperhero from "../components/RQFsuperhero";
 import Superhero from "../components/Superhero";
 import RQFsuperherodetails from "../components/RQFsuperherodetails";
 import DynamicParallelQuery from "../components/DynamicParallelQuery";
+import DependentQuery from "../components/DependentQuery";
 
 const MainRouting = () => {
   return (
@@ -15,6 +16,10 @@ const MainRouting = () => {
       <Route
         path="/req/superheros/dynamic/parallel"
         element={<DynamicParallelQuery />}
+      />
+      <Route
+        path="/req/dependent/query/api/calls"
+        element={<DependentQuery />}
       />
     </Routes>
   );

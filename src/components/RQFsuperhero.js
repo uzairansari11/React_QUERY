@@ -25,8 +25,8 @@ const RQFsuperhero = () => {
       // enabled: false,
       refetchOnMount: true,
       refetchOnWindowFocus: "always",
-      refetchInterval: pooling,
-      refetchIntervalInBackground: true,
+      // refetchInterval: pooling,
+      // refetchIntervalInBackground: true,
       onSuccess,
       onError,
       select: (data) => {

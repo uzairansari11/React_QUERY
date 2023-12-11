@@ -83,7 +83,7 @@ const res = useQuery(
            onError,
            success : (data)=>{
            const name = data.data.map((ele)=>{
-            return ele.name 
+            return ele.name
             })
 
            }
@@ -94,27 +94,29 @@ const res = useQuery(
 
 ### Dynamic data fetching using id
 
-#### keyPoints 
- - since react-query caches the data using keys so for dynamic id we need to use dynamic key : ['key-name',id] so every time we get different key for different id
+#### keyPoints
 
-  - the fetch function has access to the {queryKey} which is an array so we can access
+- since react-query caches the data using keys so for dynamic id we need to use dynamic key : ['key-name',id] so every time we get different key for different id
+
+- the fetch function has access to the {queryKey} which is an array so we can access
   the id using query[1]
 
-  ```
-  const fetcherFunction = ( {queryKey})=>{
-      console.log(queryKey)  // ['key-name',id]
-      return axios.get(`url/${queryKey[1]}`)
-  }
-  const res = useQuery ( ['key-name',id],fetcherFunction)
+```
+const fetcherFunction = ( {queryKey})=>{
+    console.log(queryKey)  // ['key-name',id]
+    return axios.get(`url/${queryKey[1]}`)
+}
+const res = useQuery ( ['key-name',id],fetcherFunction)
 
-  ```
- 
+```
 
- ### Dynamic parallel queries
- - for ex : we go to a page where we want to fetch the data for two or more ids i:e [1,2,3]
+### Dynamic parallel queries
+
+- for ex : we go to a page where we want to fetch the data for two or more ids i:e [1,2,3]
   in this case we can make use of the hook given by react-query i:e useQueries
 
-- example using code 
+- example using code
+
 ```
 import {useQueries} from "react-query";
 import axios from "axios";
@@ -138,5 +140,43 @@ const fetcherFunction = (id)=>{
 
 ```
 
+### Dependent Query
+
+- important point
+  when we use useQuery for data fetching as soon as component mounts
+  api call is fired , so to stop it we have a flag called enabled by default
+  its value is true
+
+* let's take a example : we have a user email by which we can access his
+  channel name , and using channel name we can access the content he
+  makes on youtube; (all related to api calls)
+
+```
+const UserDetails = (data) =>{
+
+const fetcherFunction1 = ({queryKey})=>{
+return axios.get(`url1/${queryKey[1]}`)
+
+}
+
+const fetcherFunction2 = ({queryKey})=>{
+return axios.get(`url2/${queryKey[1]}`)
+
+}
+  const {email} = data;
+
+  const {data:user} =useQuery (
+    ['user-details',email] , fetcherFunction
+  )
+const channelId = user.data.channelId
+  const {data:channel} =useQuery (
+    ['user-details',channelId] , fetcherFunction2,{
+      enabled : !!channelId
+    }
+  )
 
 
+
+}
+
+```
