@@ -69,7 +69,7 @@ const RQFsuperhero = () => {
 
         data?.length &&
         data.map((ele) => (
-          <Link to={`/req/superheros/${ele.id}`}>
+          <Link to={`/req/superheros/${ele.id}`} key={ele.id}>
             <p key={ele.id} className="App-hero">
               {ele.superhero}
             </p>

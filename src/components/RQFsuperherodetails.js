@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import useSuperhero from "../hooks/useSuperhero";
 const RQFsuperherodetails = () => {
   const { id } = useParams();
-  console.log(id, "before");
-  const { isLoading, isError, data, error } = useSuperhero(id);
-  console.log(id, "after");
-  console.log(isLoading, isError, data, error);
+  // console.log(id, "before");
+  const { isLoading, isError, data, error } = useSuperhero(
+    id,
+    "super-hero-data"
+  );
+  // console.log(id, "after");
+  // console.log(isLoading, isError, data, error);
   return (
     <>
       {isLoading ? (
@@ -19,7 +22,7 @@ const RQFsuperherodetails = () => {
             flexWrap: "wrap",
             justifyContent: "space-between",
             alignItems: "center",
-            columnGap:'1rem',
+            columnGap: "1rem",
             color: "white",
             background: "red",
             borderRadius: "2rem",
