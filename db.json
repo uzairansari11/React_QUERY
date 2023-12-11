@@ -12,8 +12,13 @@
             },
             {
                   "id": 3,
-                  "name": "Wonder Women 12",
+                  "name": "Wonder Women 34",
                   "alterEgo": "Princess Diana"
+            },
+            {
+                  "id": 4,
+                  "name": "Iron man",
+                  "alterEgo": "Tony stark"
             }
       ]
 }
