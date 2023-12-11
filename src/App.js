@@ -19,17 +19,21 @@ function App() {
           color: "red",
         }}
       >
-        <Link to="/" style={style }>
+        <Link to="/" style={style}>
           Home
         </Link>
 
-        <Link to="/superheros" style={ style }>
+        <Link to="/superheros" style={style}>
           Normal Fetching SuperHeros
         </Link>
 
-        <Link to="req/superheros" style={ style }>
+        <Link to="req/superheros" style={style}>
           {" "}
           React Query Superheros
+        </Link>
+        <Link to="/req/superheros/dynamic/parallel" style={style}>
+          {" "}
+          Dynamic Parallel Superheros
         </Link>
       </div>
       <MainRouting />

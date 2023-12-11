@@ -109,3 +109,34 @@ const res = useQuery(
 
   ```
  
+
+ ### Dynamic parallel queries
+ - for ex : we go to a page where we want to fetch the data for two or more ids i:e [1,2,3]
+  in this case we can make use of the hook given by react-query i:e useQueries
+
+- example using code 
+```
+import {useQueries} from "react-query";
+import axios from "axios";
+function DynamicPage = ({data}) =>{
+  console.log(data) // [1,2,3]
+
+const fetcherFunction = (id)=>{
+  return axios.get(`${url}/${id}`)
+}
+
+  const res = useQueries (
+   data.map((id)=>{
+    return {
+      queryKey:['key-name',id]
+      queryFn : ()=>fetcherFunction(id)
+    }
+   })
+  )
+
+}
+
+```
+
+
+
