@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { Link } from 'react-router-dom';
 import './App.css';
+import MainRouting from './Routes/Routing';
 
 function App() {
+  const style= {textDecoration:"none",color:"white"}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "4rem",
+          background: "grey",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2rem 2rem",
+          textDecoration: "none",
+          color: "red",
+        }}
+      >
+        <Link to="/" style={style }>
+          Home
+        </Link>
+
+        <Link to="/superheros" style={ style }>
+          Normal Fetching SuperHeros
+        </Link>
+
+        <Link to="req/superheros" style={ style }>
+          {" "}
+          React Query Superheros
+        </Link>
+      </div>
+      <MainRouting />
     </div>
   );
 }
