@@ -211,3 +211,19 @@ const useSuperhero = (userId, key) => {
 export default useSuperhero;
 
 ```
+
+### Pagination and keepPreviousData
+
+```
+ const fetcherFunction = (page) => {
+    return axios.get(`http://localhost:8080/colors?_limit=2&_page=${page}`);
+  };
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isError, error } = useQuery(
+    ["paginatedData", page],
+    () => fetcherFunction(page),
+    {
+      keepPreviousData: true,
+    }
+  );
+```

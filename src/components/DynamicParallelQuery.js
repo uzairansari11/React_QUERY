@@ -26,7 +26,7 @@ const DynamicParallelQuery = () => {
                     ) : ele.isError ? (
                       <p>{ele.error.message}</p>
                     ) : (
-                      <div>
+                      <div key={ele.id}>
                         <p>{ele?.data?.data?.superhero}</p>
                       </div>
                     );

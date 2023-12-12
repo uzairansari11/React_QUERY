@@ -5,6 +5,7 @@ import Superhero from "../components/Superhero";
 import RQFsuperherodetails from "../components/RQFsuperherodetails";
 import DynamicParallelQuery from "../components/DynamicParallelQuery";
 import DependentQuery from "../components/DependentQuery";
+import Paginated from "../components/Paginated";
 
 const MainRouting = () => {
   return (
@@ -21,6 +22,7 @@ const MainRouting = () => {
         path="/req/dependent/query/api/calls"
         element={<DependentQuery />}
       />
+      <Route path="/req/paginated/query/api/calls" element={<Paginated />} />
     </Routes>
   );
 };

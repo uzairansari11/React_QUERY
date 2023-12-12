@@ -176,5 +176,15 @@
                         "javascript"
                   ]
             }
+      ],
+      "colors": [
+            {"id":1,"color":"red"},
+            {"id":2,"color":"green"},
+            {"id":3,"color":"blue"},
+            {"id":4,"color":"yellow"},
+            {"id":5,"color":"pink"},
+            {"id":6,"color":"black"},
+            {"id":7,"color":"teal"}
+            
       ]
 }

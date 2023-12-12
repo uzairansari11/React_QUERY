@@ -39,6 +39,10 @@ function App() {
           {" "}
           Dependent Query
         </Link>
+        <Link to="/req/paginated/query/api/calls" style={style}>
+          {" "}
+          Paginated 
+        </Link>
       </div>
       <MainRouting />
     </div>
