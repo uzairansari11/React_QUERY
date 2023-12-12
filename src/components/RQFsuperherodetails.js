@@ -2,15 +2,13 @@ import { useParams } from "react-router-dom";
 import useSuperhero from "../hooks/useSuperhero";
 const RQFsuperherodetails = () => {
   const { id } = useParams();
-  // console.log(id, "before");
   const { isLoading, isError, data, error } = useSuperhero(
     id,
     "super-hero-data"
   );
-  // console.log(id, "after");
-  // console.log(isLoading, isError, data, error);
   return (
     <>
+      
       {isLoading ? (
         <p>Loading data ...</p>
       ) : isError ? (

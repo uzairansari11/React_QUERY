@@ -14,7 +14,6 @@ const Paginated = () => {
     }
   );
   // const res = useQuery(["paginatedData", page], () => fetcherFunction(page));
-  console.log(data?.headers.get("X-Total-Count"), "i am header");
   return (
     <div>
       <p>Paginated</p>

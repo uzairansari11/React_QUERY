@@ -11,7 +11,6 @@ const DependentQuery = () => {
     return axios.get("http://localhost:8080/channels/" + queryKey[1]);
   };
   const { data: user } = useQuery(["user-details", email], userFetcherFunction);
-  //   console.log(user?.data);
   const channelId = user?.data?.channelName;
   const { data: channel } = useQuery(
     ["user-channel", channelId],
@@ -20,7 +19,6 @@ const DependentQuery = () => {
       enabled: !!channelId,
     }
   );
-//   console.log(channel);
   return (
     <div>
       <p>DependentQuery</p>

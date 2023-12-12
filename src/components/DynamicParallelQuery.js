@@ -16,7 +16,6 @@ const DynamicParallelQuery = () => {
                   }
             })
       )
-      // console.log(res[0].data.data.superhero, "from dynamic parallel queries");
   return <div>
 
         {

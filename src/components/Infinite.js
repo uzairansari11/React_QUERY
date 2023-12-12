@@ -28,7 +28,6 @@ const Infinite = () => {
     },
   });
   // const res = useQuery(["paginatedData", page], () => fetcherFunction(page));
-//   console.log(data?.pages, "i am header");
   useEffect(() => {
     setTotalPage(data?.pages[0]?.headers?.get("x-total-count"));
   }, [data?.pages]);

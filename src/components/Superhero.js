@@ -11,7 +11,6 @@ const Superhero = () => {
     try {
       const resp = await axios.get(`http://localhost:8080/superheros`);
       const fetchedData = resp.data;
-      // console.log("fetch data", fetchedData);
       setData(fetchedData);
     } catch (error) {
       setError(error.message);
