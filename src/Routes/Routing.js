@@ -6,6 +6,7 @@ import RQFsuperherodetails from "../components/RQFsuperherodetails";
 import DynamicParallelQuery from "../components/DynamicParallelQuery";
 import DependentQuery from "../components/DependentQuery";
 import Paginated from "../components/Paginated";
+import Infinite from "../components/Infinite";
 
 const MainRouting = () => {
   return (
@@ -23,6 +24,7 @@ const MainRouting = () => {
         element={<DependentQuery />}
       />
       <Route path="/req/paginated/query/api/calls" element={<Paginated />} />
+      <Route path="/req/infinite/query/api/calls" element={<Infinite />} />
     </Routes>
   );
 };

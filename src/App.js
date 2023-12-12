@@ -41,7 +41,11 @@ function App() {
         </Link>
         <Link to="/req/paginated/query/api/calls" style={style}>
           {" "}
-          Paginated 
+          Paginated
+        </Link>
+        <Link to="/req/infinite/query/api/calls" style={style}>
+          {" "}
+          Infinite
         </Link>
       </div>
       <MainRouting />
