@@ -1,12 +1,12 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "../components/Home";
-import RQFsuperhero from "../components/RQFsuperhero";
-import Superhero from "../components/Superhero";
-import RQFsuperherodetails from "../components/RQFsuperherodetails";
-import DynamicParallelQuery from "../components/DynamicParallelQuery";
+import { Route, Routes } from "react-router-dom";
 import DependentQuery from "../components/DependentQuery";
-import Paginated from "../components/Paginated";
+import DynamicParallelQuery from "../components/DynamicParallelQuery";
+import Home from "../components/Home";
 import Infinite from "../components/Infinite";
+import Paginated from "../components/Paginated";
+import RQFsuperhero from "../components/RQFsuperhero";
+import RQFsuperherodetails from "../components/RQFsuperherodetails";
+import Superhero from "../components/Superhero";
 
 const MainRouting = () => {
   return (

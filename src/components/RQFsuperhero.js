@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import "../App.css";
 import { Link } from "react-router-dom";
 import useAddSuperhero from "../hooks/useAddSuperhero";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 const RQFsuperhero = () => {
   const [pooling, setPooling] = useState(3000);
   const [inputField, setInputField] = useState({

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useInfiniteQuery } from "react-query";
 import axios from "axios";
+
 const Infinite = () => {
   const [totalPage, setTotalPage] = useState(1);
+
   const fetcherFunction = ({ pageParam = 1 }) => {
     return axios.get(
       `http://localhost:8080/colors?_limit=2&_page=${pageParam}`
     );
   };
 
-  var {
+  const {
     data,
     isLoading,
     isError,
@@ -27,11 +29,28 @@ const Infinite = () => {
       }
     },
   });
-  // const res = useQuery(["paginatedData", page], () => fetcherFunction(page));
+
   useEffect(() => {
     setTotalPage(data?.pages[0]?.headers?.get("x-total-count"));
   }, [data?.pages]);
-  
+
+  const buttonContainerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "2rem",
+  };
+
+  const buttonStyle = {
+    padding: "10px 20px",
+    borderRadius: "5px",
+    backgroundColor: "#007bff",
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+    outline: "none",
+    fontWeight: "bold",
+  };
+
   return (
     <div>
       <p>Paginated</p>
@@ -40,26 +59,23 @@ const Infinite = () => {
       ) : isError ? (
         <p>{error.message}</p>
       ) : (
-        data?.pages?.map((ele) => (
-          <div key={ele.id}>
-            {ele.data.map((ele) => {
-              return <p>{ele.color}</p>;
-            })}
+        data?.pages?.map((page) => (
+          <div key={page.id}>
+            {page.data.map((item) => (
+              <p key={item.id}>{item.color}</p>
+            ))}
           </div>
         ))
       )}
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          columnGap: "2rem",
-          marginTop: "2rem",
-        }}
-      ></div>
-      <button disabled={!hasNextPage} onClick={fetchNextPage}>
-        {isFetched && isFetchingNextPage ? "Loading.." : "Show more"}
-      </button>
+      <div style={buttonContainerStyle}>
+        <button
+          style={buttonStyle}
+          disabled={!hasNextPage}
+          onClick={fetchNextPage}
+        >
+          {isFetched && isFetchingNextPage ? "Loading.." : "Show more"}
+        </button>
+      </div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const DependentQuery = () => {
       <h3> Channel Name {user?.data.channelName || "N/A"}</h3>
       <h3>Channel topics </h3>
       {channel?.data?.topics?.map((ele) => {
-        return <p>{ele}</p>;
+        return <p key={ele.id}>{ele}</p>;
       })}
     </div>
   );

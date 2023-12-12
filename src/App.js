@@ -3,7 +3,7 @@ import "./App.css";
 import MainRouting from "./Routes/Routing";
 
 function App() {
-  const style = { textDecoration: "none", color: "white" };
+  const style = { textDecoration: "none", color: "black" ,fontWeight:"bold"};
   return (
     <div className="App">
       <div
@@ -11,12 +11,13 @@ function App() {
           display: "flex",
           flexWrap: "wrap",
           gap: "4rem",
-          background: "grey",
+          background: "white",
           justifyContent: "center",
           alignItems: "center",
           padding: "2rem 2rem",
           textDecoration: "none",
           color: "red",
+          boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
         }}
       >
         <Link to="/" style={style}>
